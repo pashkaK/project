@@ -2,58 +2,49 @@
 <html>
 <head>
 	<title>Final Test</title>
-	<script type="text/javascript">
-		var postion = ["Junior QA engineer", "Middle QA engineer", "Porduct owner", "Senior QA engineer", "Middle developer", "Project manager", "Senior developer", "Junior developer"];
-		var arrPeople = new Array();
-
-		function getNames() {
-			for (var i = 0; i < postion.length; i++) {
-			arrPeople[i] = prompt("Enter name");
-			}
-		}
-		// function createTeam() {
-			var team = {
-			name: a = Object.assign(arrPeople),
-			position: b = Object.assign(postion) 
-			};
-			// return team;
-		// }
-		var arrPost = new Array();
-		function setSalary() {
-
-			
-			for (var i = 0; i < postion.length; i++) {
-				arrPost[i] = postion[i].split(' ')[0];
-			};
-			// console.log(arrPost);
-
-			for (var i = 0; i < postion.length; i++) {
-				if(arrPost[i].indexOf('Junior') == 0) {
-					team.salary = Math.floor(Math.random() * (1000 - 500) + 500);
-					break;
-				} else if(arrPost[i].indexOf('Middle') == 0) {
-					team.salary = Math.floor(Math.random() * (2000 - 1500) + 1500);
-					break;
-				} else if(arrPost[i].indexOf('Senior') == 0) {
-					team.salary = Math.floor(Math.random() * (3000 - 2500) + 2500);
-					break;
+	<script type="text/javascript">	
+		var position = ["Junior QA engineer", "Middle QA engineer", "Porduct owner", "Senior QA engineer", "Middle developer", "Project manager", "Senior developer", "Junior developer"];
+		function workTeam() {
+			var name = new Array();
+			// об'єкт працівників
+			for (var i = 0; i < position.length; i++) {
+				name[i] = prompt('Enter a name');
+				var team = {
+					workers: {
+						name: name[i],
+						position:position[i],
+					}
+				 }
+				// добавляю властивість salary
+				var string = position[i];
+				if(string.indexOf('Junior') == 0) {
+					team.workers.salary = Math.floor(Math.random() * (1000 - 500) + 500);
+				} else if(string.indexOf('Middle') == 0) {
+					team.workers.salary = Math.floor(Math.random() * (2000 - 1500) + 1500);
+				} else if(string.indexOf('Senior') == 0) {
+					team.workers.salary = Math.floor(Math.random() * (3000 - 2500) + 2500);
 				} else {
-					team.salary = Math.floor(Math.random() * (4500 - 4000) + 4000);
-					break;
+					team.workers.salary = Math.floor(Math.random() * (4500 - 4000) + 4000);
 				}
-				
+				// додаю кожному працівнику метод tellAboutYourself
+				team.workers.tellAboutYourself = function() {
+					document.write('My name ' + name[i] + ' and i am - ' + position[i] +'. I earn ' + this.salary + ' $.' + '</br>' );
+				}
+				// додаю об'єкту team метод showTeam
+				team.showTeam = function() {
+					console.log(team.workers.name + ' - ' + team.workers.position + '. salary - ' + team.workers.salary + ' $');
+					console.log('*********************');
+				}
+				team.workers.tellAboutYourself();
+				team.showTeam();
 			}
-			
 		}
-		getNames();
-		setSalary(team);
-		console.log(team);
+	workTeam();
 
-		
-		
 	</script>
 </head>
 <body>
 
 </body>
 </html>
+
