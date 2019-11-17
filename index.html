@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Final Test</title>
+	<script type="text/javascript">
+		var postion = ["Junior QA engineer", "Middle QA engineer", "Porduct owner", "Senior QA engineer", "Middle developer", "Project manager", "Senior developer", "Junior developer"];
+		var arrPeople = new Array();
+
+		function getNames() {
+			for (var i = 0; i < postion.length; i++) {
+			arrPeople[i] = prompt("Enter name");
+			}
+		}
+		// function createTeam() {
+			var team = {
+			name: a = Object.assign(arrPeople),
+			position: b = Object.assign(postion) 
+			};
+			// return team;
+		// }
+		var arrPost = new Array();
+		function setSalary() {
+
+			
+			for (var i = 0; i < postion.length; i++) {
+				arrPost[i] = postion[i].split(' ')[0];
+			};
+			// console.log(arrPost);
+
+			for (var i = 0; i < postion.length; i++) {
+				if(arrPost[i].indexOf('Junior') == 0) {
+					team.salary = Math.floor(Math.random() * (1000 - 500) + 500);
+					break;
+				} else if(arrPost[i].indexOf('Middle') == 0) {
+					team.salary = Math.floor(Math.random() * (2000 - 1500) + 1500);
+					break;
+				} else if(arrPost[i].indexOf('Senior') == 0) {
+					team.salary = Math.floor(Math.random() * (3000 - 2500) + 2500);
+					break;
+				} else {
+					team.salary = Math.floor(Math.random() * (4500 - 4000) + 4000);
+					break;
+				}
+				
+			}
+			
+		}
+		getNames();
+		setSalary(team);
+		console.log(team);
+
+		
+		
+	</script>
+</head>
+<body>
+
+</body>
+</html>
